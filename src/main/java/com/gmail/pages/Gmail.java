@@ -10,7 +10,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class Gmail {
 
     private WebDriver driver;
-    WebDriverWait wait = new WebDriverWait(driver, 5);
+    private WebDriverWait wait;
 
     @FindBy(id = "identifierId")
     private WebElement email;
@@ -18,7 +18,7 @@ public class Gmail {
     @FindBy(id = "identifierNext")
     private WebElement loginNextButton;
 
-    @FindBy(id = "password")
+    @FindBy(name = "password")
     private WebElement password;
 
     @FindBy(id = "passwordNext")
@@ -27,6 +27,7 @@ public class Gmail {
     public Gmail(WebDriver driver) {
         PageFactory.initElements(driver, this);
         this.driver = driver;
+        this.wait = new WebDriverWait(driver, 5);
     }
 
 
