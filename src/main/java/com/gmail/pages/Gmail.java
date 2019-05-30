@@ -31,8 +31,9 @@ public class Gmail {
     }
 
 
-    public void visit() {
+    public Gmail visit() {
         driver.get("http://gmail.com");
+        return this;
     }
 
     public void logIn(String login, String pass) {
