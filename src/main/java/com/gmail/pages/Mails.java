@@ -29,6 +29,9 @@ public class Mails {
     @FindBy(css = "[role='main'] .zA")
     private List<WebElement> mails;
 
+    @FindBy(css = ".AD")
+    private WebElement emailForm;
+
     public Mails(WebDriver driver) {
         PageFactory.initElements(driver, this);
         this.wait = new WebDriverWait(driver, 5);
@@ -41,6 +44,7 @@ public class Mails {
         emailTo.sendKeys(email);
         subject.sendKeys(subj);
         sendButton.click();
+        wait.until(ExpectedConditions.invisibilityOf(emailForm));
     }
 
     public boolean inboxMailsContainSubject(String subj) {
